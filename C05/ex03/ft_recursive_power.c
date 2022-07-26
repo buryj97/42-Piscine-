@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 12:28:16 by jbury             #+#    #+#             */
-/*   Updated: 2022/07/24 16:26:04 by jbury            ###   ########.fr       */
+/*   Created: 2022/07/26 19:20:56 by jbury             #+#    #+#             */
+/*   Updated: 2022/07/26 19:38:37 by jbury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_numeric(char *str)
+int	ft_recursive_power(int nb, int power)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if ((str[i] >= '0' && str[i] <= '9') || str[i] == '\0')
-		{
-			i++;
-		}
-		else
-			return (0);
-	}
-	return (1);
+	if (power < 0)
+		return (0);
+	else if (power < 1)
+		return (1);
+	else
+		return (nb * ft_recursive_power(nb, power - 1));
 }

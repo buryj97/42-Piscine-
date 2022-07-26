@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 12:28:16 by jbury             #+#    #+#             */
-/*   Updated: 2022/07/24 16:26:04 by jbury            ###   ########.fr       */
+/*   Created: 2022/07/26 10:50:04 by jbury             #+#    #+#             */
+/*   Updated: 2022/07/26 12:50:31 by jbury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_numeric(char *str)
+int	ft_iterative_factorial(int nb)
 {
+	int	fact;
 	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
+	if (nb < 0)
+		return (0);
+	fact = 1;
+	i = 1;
+	while (i <= nb)
 	{
-		if ((str[i] >= '0' && str[i] <= '9') || str[i] == '\0')
-		{
-			i++;
-		}
-		else
-			return (0);
+		fact = fact * i;
+		i++;
 	}
-	return (1);
+	return (fact);
 }

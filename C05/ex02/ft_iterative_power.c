@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 12:28:16 by jbury             #+#    #+#             */
-/*   Updated: 2022/07/24 16:26:04 by jbury            ###   ########.fr       */
+/*   Created: 2022/07/26 12:47:18 by jbury             #+#    #+#             */
+/*   Updated: 2022/07/26 19:19:31 by jbury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_numeric(char *str)
+int	ft_iterative_power(int nb, int power)
 {
 	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
+	if (power < 0)
+		return (0);
+	if (power == 0 && nb == 0)
+		return (1);
+	i = nb;
+	while (power > 1)
 	{
-		if ((str[i] >= '0' && str[i] <= '9') || str[i] == '\0')
-		{
-			i++;
-		}
-		else
-			return (0);
+		nb *= i;
+		power--;
 	}
-	return (1);
+	return (nb);
 }

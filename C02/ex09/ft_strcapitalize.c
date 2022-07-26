@@ -6,10 +6,9 @@
 /*   By: jbury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:50:04 by jbury             #+#    #+#             */
-/*   Updated: 2022/07/21 18:51:52 by jbury            ###   ########.fr       */
+/*   Updated: 2022/07/24 16:26:42 by jbury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
 char	*ft_strcapitalize(char *str)
 {
@@ -33,22 +32,4 @@ char	*ft_strcapitalize(char *str)
 		i++;
 	}
 	return (str);
-}
-
-void	ft_putstr(char *str)
-{
-	int l;
-
-	l = 0;
-	while (str[l])
-	{
-		l++;
-	}
-	write(1, str, l);
-}
-
-int		main()
-{
-	char c[] = "salut, coMMent tu vAs ? 42mOts quArAnTe-dEux; cinQuante+et+un";
-	ft_putstr(ft_strcapitalize(c));
 }

@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 12:28:16 by jbury             #+#    #+#             */
-/*   Updated: 2022/07/24 16:26:04 by jbury            ###   ########.fr       */
+/*   Created: 2022/07/25 13:45:40 by jbury             #+#    #+#             */
+/*   Updated: 2022/07/26 17:47:31 by jbury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_numeric(char *str)
+char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
+	int	j;
 
-	i = 0;
-	while (str[i] != '\0')
+	j = 0;
+	if (to_find[0] == '\0')
+		return (str);
+	while (str[j])
 	{
-		if ((str[i] >= '0' && str[i] <= '9') || str[i] == '\0')
+		i = 0;
+		while ((to_find[i] != str[j]) && str[j] != '\0')
+			j++;
+		while ((to_find[i] == str[j]) || (to_find[i] == '\0'))
 		{
+			if (to_find[i] == '\0')
+			{
+				return (&str[j - i]);
+			}
 			i++;
+			j++;
 		}
-		else
-			return (0);
 	}
-	return (1);
+	return (0);
 }
