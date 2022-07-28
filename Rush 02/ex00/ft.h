@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbury <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: cchouire <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 12:55:19 by jbury             #+#    #+#             */
-/*   Updated: 2022/07/28 19:11:33 by jbury            ###   ########.fr       */
+/*   Created: 2022/07/23 17:50:08 by cchouire          #+#    #+#             */
+/*   Updated: 2022/07/23 17:51:06 by cchouire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-#include <string.h>
 
-int	main(int argc, char *argv[])
-{
-	int	i;
+#ifndef FT_H
+# define FT_H
+# include <unistd.h>
+# include <stdlib.h>
 
-	i = argc - 1;
-	while (i > 0)
-	{	
-		write(1, argv[i], strlen(argv[i]));
-		write(1, "\n", 1);
-		i--;
-	}
-	return (0);
-}
+int		ft_strlen(char *str);
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
+
+#endif

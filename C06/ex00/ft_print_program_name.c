@@ -6,7 +6,7 @@
 /*   By: jbury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 10:37:00 by jbury             #+#    #+#             */
-/*   Updated: 2022/07/22 12:23:31 by jbury            ###   ########.fr       */
+/*   Updated: 2022/07/28 18:10:59 by jbury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -17,6 +17,7 @@ int	main(int argc, char *argv[])
 	while (argc == 0)
 	{	
 		write(1, argv[argc], sizeof(argv[argc]));
+		write(1, "\n", 1);
 		argc++;
 	}
 	return (0);

@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 14:43:38 by jbury             #+#    #+#             */
-/*   Updated: 2022/07/27 15:00:44 by jbury            ###   ########.fr       */
+/*   Created: 2022/07/24 16:54:23 by jbury             #+#    #+#             */
+/*   Updated: 2022/07/24 17:07:21 by jbury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <string.h>
 #include <unistd.h>
 
-void	ft_putchar(char c)
+char	ft_putstr(char *str)
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = 0;
+	if (str[i] >= 97 && str[i] <= 122)
+	{
+		write(1, str, ft_strlen(str));
+	}
 }
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
-	{
-		ft_putchar('-');
-		ft_putchar('2');
-		ft_putnbr(147483648);
-	}
-	else if (nb < 0)
-	{
-		ft_putchar('-');
-		ft_putnbr(nb * -1);
-	}
-	else if (nb >= 0 && nb <= 9)
-		ft_putchar(nb + 48);
-	else if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-}

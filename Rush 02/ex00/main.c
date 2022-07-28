@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 14:43:38 by jbury             #+#    #+#             */
-/*   Updated: 2022/07/27 15:00:44 by jbury            ###   ########.fr       */
+/*   Created: 2022/07/24 17:55:17 by jbury             #+#    #+#             */
+/*   Updated: 2022/07/24 20:51:48 by jbury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "ft.h"
 
-void	ft_putchar(char c)
+int	main(int argc, char **argv[])
 {
-	write(1, &c, 1);
-}
+	int	res;
+	bool	x;
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
+	x = true;
+
+	ft_check_input_args(argc, argv);
+	if (ft_is_numeric == x)
 	{
-		ft_putchar('-');
-		ft_putchar('2');
-		ft_putnbr(147483648);
+		res = ft_atoi(argc, argv);
+		ft_div_mod(res);
+		ft_itoa(ft_div_mod(res));
+		open("numbers.dict", O_RDONLY);
+		read(fd, *buf, nbytes);
+		if (to_find(res) == x)
+			ft_putstr(to_find);
+		else
+			ft_putstr("Dict Error\n");
 	}
-	else if (nb < 0)
-	{
-		ft_putchar('-');
-		ft_putnbr(nb * -1);
-	}
-	else if (nb >= 0 && nb <= 9)
-		ft_putchar(nb + 48);
-	else if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
+	else
+		ft_putstr("Error\n");
+	return (0);
 }

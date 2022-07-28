@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   numbers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbury <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: cchouire <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 17:47:35 by jbury             #+#    #+#             */
-/*   Updated: 2022/07/25 18:44:15 by jbury            ###   ########.fr       */
+/*   Created: 2022/07/23 16:02:52 by cchouire          #+#    #+#             */
+/*   Updated: 2022/07/23 16:22:41 by cchouire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_atoi(char *str)
+
+int	set_num(char *str)
 {
 	int	i;
 	int	res;
-	int	sign;
 
-	i = 0;
-	sign = 1;
 	res = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	while ((str[i] == '-') || (str[i] == '+'))
-	{
-		if (str[i] == '-')
-			sign = -sign;
-		i++;
-	}
+	i = 0;
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
-		res = res * 10 + str[i++] - '0';
+		res = (res * 10) + str[i] - '0';
+		i++;
 	}
-	return (sign * res);
+	return (res);
+}
+
+char	*set_alpha(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && str[i - 1] != ' ')
+		i++;
+	return (ft_strdup(&str[i]));
 }

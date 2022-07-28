@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*   ft_check_input_args.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbury <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: cchouire <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 12:55:19 by jbury             #+#    #+#             */
-/*   Updated: 2022/07/28 19:11:33 by jbury            ###   ########.fr       */
+/*   Created: 2022/07/23 18:27:04 by cchouire          #+#    #+#             */
+/*   Updated: 2022/07/23 18:27:07 by cchouire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
-#include <string.h>
 
-int	main(int argc, char *argv[])
+int ft_check_input_args(int ac, char **av, int *input)
 {
-	int	i;
-
-	i = argc - 1;
-	while (i > 0)
-	{	
-		write(1, argv[i], strlen(argv[i]));
-		write(1, "\n", 1);
-		i--;
-	}
-	return (0);
+  if ((ac < 2 && ac > 3)|| (*input = ft_atoi(av)) < 0)
+  {
+	  write(1, "error", 5);
+	  return (-1);
+  }
+  return (*input);
 }
+

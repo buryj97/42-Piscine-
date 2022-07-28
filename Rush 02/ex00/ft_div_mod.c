@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_div_mod.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbury <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: cchouire <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 14:43:38 by jbury             #+#    #+#             */
-/*   Updated: 2022/07/27 15:00:44 by jbury            ###   ########.fr       */
+/*   Created: 2022/07/23 20:00:22 by cchouire          #+#    #+#             */
+/*   Updated: 2022/07/23 20:00:42 by cchouire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
 
 void	ft_putchar(char c)
@@ -16,24 +17,22 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(int nb)
+int	ft_putnbr(int nb)
 {
-	if (nb == -2147483648)
+	int 	value1;
+	int	value2;
+
+	if ( nb > 9 )
 	{
-		ft_putchar('-');
-		ft_putchar('2');
-		ft_putnbr(147483648);
+		value1 = (nb / 10) * 10;
+		value2 = (nb % 10);		
 	}
-	else if (nb < 0)
-	{
-		ft_putchar('-');
-		ft_putnbr(nb * -1);
-	}
-	else if (nb >= 0 && nb <= 9)
-		ft_putchar(nb + 48);
-	else if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
+}
+
+int	main()
+{
+	int	nb;
+
+	nb = 42;
+	ft_putnbr(nb);
 }
